@@ -1,0 +1,21 @@
+
+get http://localhost:8080/akuankka/mikkihiiri
+
+
+###
+get http://localhost:8080/1
+
+###
+get http://localhost:8080/api/locations/1
+
+###
+get http://localhost:8080/api/locations/
+
+###
+delete http://localhost:8080/api/locations/
+
+###
+post http://localhost:8080/api/locations/
+content-type: application/json
+
+{ "latitude": 60, "longitude": 60 }

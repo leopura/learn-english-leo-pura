@@ -1,0 +1,21 @@
+
+get http://localhost:8080/akuankka/mikkihiiri
+
+
+###
+get http://localhost:3000/1
+
+###
+get http://localhost:3000/api/locations/1
+
+###
+get http://localhost:3000/api/locations/
+
+###
+delete http://localhost:3000/api/locations/
+
+###
+post http://localhost:3000/api/locations/
+content-type: application/json
+
+{ "finnish": "kissa", "english": "cat" }

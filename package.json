@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/app.js",
+    "start": "node Backend/app.js",
     "build:frontend": "cd frontend && npm run build",
     "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "nodemon backend/app.js"
+    "dev:backend": "cd backend && nodemon app.js"
   },
   "keywords": [],
   "author": "",

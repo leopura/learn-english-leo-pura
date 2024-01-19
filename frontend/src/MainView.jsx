@@ -79,12 +79,6 @@ function MainView() {
 
   return (
     <div className="container">
-      <div>
-        <Link to="/admin" className="button">
-          Go to Admin View
-        </Link>{" "}
-        {/* Link to AdminView */}
-      </div>
       <button className="button" onClick={toggleLanguage}>
         Switch to{" "}
         {isEnglishToFinnish ? "Finnish to English" : "English to Finnish"}

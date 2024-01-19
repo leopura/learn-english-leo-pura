@@ -1,15 +1,28 @@
 /* index.css */
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensures the html and body take full viewport height */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensures the root div takes full viewport height */
+}
+
 .container {
+  flex-grow: 1; /* Allows the container to grow and fill available space */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   background-color: #003366; /* Dark blue background */
   color: white;
   font-family: Arial, sans-serif;
-  padding: 0;
+  overflow: auto; /* Adds scroll inside container if content overflows */
 }
 
 .form {
@@ -51,4 +64,33 @@
 
 .list-item {
   margin: 10px 0;
+}
+
+.header {
+  background-color: #007bff; /* Choose a suitable color */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-shrink: 0; /* Prevents the header from shrinking */
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #0056b3; /* Darker shade for contrast */
+}
+
+.header-link:hover {
+  background-color: #003d82;
+}
+
+.footer {
+  background-color: #007bff; /* Choose a suitable color */
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.8em;
 }

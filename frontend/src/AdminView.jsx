@@ -133,12 +133,6 @@ function AdminView() {
           </li>
         ))}
       </ul>
-      <button>
-        <Link to="/" className="button">
-          Back to Main View
-        </Link>{" "}
-        {/* Link to AdminView */}
-      </button>
     </div>
   );
 }

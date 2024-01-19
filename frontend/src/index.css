@@ -94,3 +94,10 @@ body {
   padding: 10px 20px;
   font-size: 0.8em;
 }
+
+.points {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #ffdd57; /* Gold color for points */
+  font-weight: bold;
+}

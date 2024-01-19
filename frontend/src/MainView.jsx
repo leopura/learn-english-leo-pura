@@ -9,6 +9,7 @@ function MainView() {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isEnglishToFinnish, setIsEnglishToFinnish] = useState(true); // State to track language mode
+  const [points, setPoints] = useState(0); // New state for tracking points
 
   const fetchRandomWord = async () => {
     try {
@@ -64,11 +65,13 @@ function MainView() {
       if (correctTranslation.toLowerCase() === inputValue.toLowerCase()) {
         setSuccessMessage("Correct translation!");
         setError("");
+        setPoints(points + 1); // Increase points by 1
         fetchRandomWord();
         setInputValue("");
       } else {
         setSuccessMessage("");
         setError("Incorrect translation. Try again.");
+        setPoints(0); // Reset points on wrong answer
       }
     } catch (err) {
       console.error("Error on form submission:", err);
@@ -79,27 +82,29 @@ function MainView() {
 
   return (
     <div className="container">
-      <button className="button" onClick={toggleLanguage}>
+      <button onClick={toggleLanguage} className="button">
         Switch to{" "}
         {isEnglishToFinnish ? "Finnish to English" : "English to Finnish"}
       </button>
       <h1>Translate the word: {word}</h1>
-      <form className="form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <input
-          className="input"
           type="text"
+          className="input"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder={`Enter ${
             isEnglishToFinnish ? "Finnish" : "English"
           } translation`}
         />
-        <button className="button" type="submit">
+        <button type="submit" className="button">
           Check
         </button>
       </form>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+      <div className="points">Points: {points}</div>{" "}
+      {/* Styled points display */}
     </div>
   );
 }

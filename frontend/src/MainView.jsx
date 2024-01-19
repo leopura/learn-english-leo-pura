@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function MainView() {
   const [word, setWord] = useState(""); // Word to be translated
@@ -77,14 +78,21 @@ function MainView() {
   };
 
   return (
-    <div>
-      <button onClick={toggleLanguage}>
+    <div className="container">
+      <div>
+        <Link to="/admin" className="button">
+          Go to Admin View
+        </Link>{" "}
+        {/* Link to AdminView */}
+      </div>
+      <button className="button" onClick={toggleLanguage}>
         Switch to{" "}
         {isEnglishToFinnish ? "Finnish to English" : "English to Finnish"}
       </button>
       <h1>Translate the word: {word}</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <input
+          className="input"
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
@@ -92,7 +100,9 @@ function MainView() {
             isEnglishToFinnish ? "Finnish" : "English"
           } translation`}
         />
-        <button type="submit">Check</button>
+        <button className="button" type="submit">
+          Check
+        </button>
       </form>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}

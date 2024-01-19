@@ -25,7 +25,7 @@ How to get a development environment running:
 
 Clone the repository:
 
-    git clone https://your-repository-url.git
+    git clone https://github.com/leopura/learn-english-leo-pura.git
 
 Install dependencies:
 

@@ -18,4 +18,4 @@ delete http://localhost:3000/api/locations/
 post http://localhost:3000/api/locations/
 content-type: application/json
 
-{ "finnish": "kissa", "english": "cat" }
+{ "finnish": "auto", "english": "car" }

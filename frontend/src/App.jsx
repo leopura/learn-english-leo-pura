@@ -1,5 +1,16 @@
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MainView from "./MainView";
 
+function App() {
+  return (
+    <div className="App">
+      <MainView />
+    </div>
+  );
+}
+
+/*
 function App() {
   const fetchIt = async () => {
     try {
@@ -22,4 +33,5 @@ function App() {
     </>
   );
 }
+*/
 export default App;

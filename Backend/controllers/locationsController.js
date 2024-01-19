@@ -85,6 +85,56 @@ const locationsController = {
       }
     }
   },
+
+  getRandomWord: async (req, res) => {
+    try {
+      const language = req.query.lang || "fi"; // Default to Finnish
+      const query =
+        "SELECT id, finnish, english FROM words ORDER BY RAND() LIMIT 1";
+      const [randomWord] = await db.queryAsync(query);
+
+      // Send back the word based on the requested language
+      res.json({
+        id: randomWord.id,
+        word: language === "en" ? randomWord.english : randomWord.finnish,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
+
+  getWordById: async (req, res) => {
+    const id = parseInt(req.params.id);
+    try {
+      const word = await db.queryAsync(
+        "SELECT english FROM words WHERE id = ?",
+        [id]
+      );
+      res.json(word[0]);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
+
+  validateTranslation: async (req, res) => {
+    const { id, translation } = req.body; // Assuming the translation is sent in the request body
+
+    try {
+      const query = "SELECT finnish, english FROM words WHERE id = ?";
+      const [word] = await db.queryAsync(query, [id]);
+
+      const isCorrect =
+        word.finnish.toLowerCase() === translation.toLowerCase() ||
+        word.english.toLowerCase() === translation.toLowerCase();
+
+      res.json({ isCorrect });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
 };
 
 const gracefulShutdown = () => {

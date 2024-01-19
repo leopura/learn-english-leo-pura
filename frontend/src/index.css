@@ -25,6 +25,19 @@ body {
   overflow: auto; /* Adds scroll inside container if content overflows */
 }
 
+.admin-container {
+  flex-grow: 1; /* Allows the container to grow and fill available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #003366; /* Dark blue background */
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: auto; /* Adds scroll inside container if content overflows */
+  padding-top: 500px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -63,7 +76,16 @@ body {
 }
 
 .list-item {
+  display: flex;
+  justify-content: space-between; /* Spread out the content and button */
+  align-items: center; /* Align items vertically */
+  padding: 5px;
   margin: 10px 0;
+}
+
+.list-item span {
+  flex-grow: 1; /* Allow the word pair to take up available space */
+  margin-right: 10px; /* Spacing between the word pair and the button */
 }
 
 .header {

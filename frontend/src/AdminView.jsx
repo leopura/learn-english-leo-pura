@@ -9,7 +9,7 @@ function AdminView() {
   const [englishWord, setEnglishWord] = useState("");
 
   const handleLogin = () => {
-    if (password === "admin") {
+    if (password === import.meta.env.VITE_ADMIN_PASSWORD) {
       setIsLoggedIn(true);
     } else {
       alert("Incorrect password");
@@ -99,7 +99,7 @@ function AdminView() {
   }
 
   return (
-    <div className="container">
+    <div className="admin-container">
       <h1>Admin View</h1>
       <form className="form" onSubmit={handleAddWordPair}>
         <input
@@ -123,7 +123,10 @@ function AdminView() {
       <ul className="list">
         {wordPairs.map((pair) => (
           <li className="list-item" key={pair.id}>
-            {pair.finnish} - {pair.english}
+            <span>
+              • {pair.finnish} - {pair.english}
+            </span>{" "}
+            {/* Wrap words in span */}
             <button
               className="button"
               onClick={() => handleDeleteWordPair(pair.id)}

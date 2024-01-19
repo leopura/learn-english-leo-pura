@@ -9,10 +9,10 @@ router.get("/", locationsController.getAllLocations);
 // Get a specific location by ID
 router.get("/:myId([0-9]+)", locationsController.getLocationById);
 
-// Delete a location by ID
+// Delete a word by ID
 router.delete("/:myId([0-9]+)", locationsController.deleteLocationById);
 
-// Add a new location
+// Add a new word
 router.post("/", locationsController.addNewLocation);
 
 // Get a random word for guessing

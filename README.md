@@ -8,9 +8,9 @@ Learn English is a simple application made with node.js and react that allows th
 
 Features
 
-    >Learn languages! 
-    >Try to get as many points as possible!
-    >Add new words and remove old ones!
+>Learn languages! 
+>Try to get as many points as possible!
+>Add new words and remove old ones!
 
 # Getting Started
 ## Dependencies
@@ -25,28 +25,30 @@ How to get a development environment running:
 
 Clone the repository:
 
-> git clone https://your-repository-url.git
+    git clone https://your-repository-url.git
 
 Install dependencies:
 
-> npm install
+    npm install
 
 ## Executing Program
 
 Start the development server:
 
-> npm run dev
+    npm run dev
 
 Access the application in a web browser at:
 
-> http://localhost:3000/
+    http://localhost:3000/
 
 ## Usage
 
 Briefly describe how to use the application:
 
-    Main View: User can input the translation, prompting a new random word from the database. User can also switch languages and keep track of score.
-    Admin View: User can add/remove words from the database.
+Main View: User can input the translation, prompting a new random word from the database. User can also switch languages and keep track of score.
+
+Admin View: User can add/remove words from the database.
+
 
 Leo Pura – leo.pura2@gmail.com
 

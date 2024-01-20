@@ -24,6 +24,8 @@ router.get("/test", (req, res) => {
 
 app.use("/api/locations", cors({ origin: "*" }), locationsRouter);
 
+app.use("/", express.static("dist"));
+
 connection.connect((err) => {
   // mysql connection
   if (err) {

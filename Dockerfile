@@ -47,7 +47,7 @@ RUN mkdir -p /app/Backend/frontend/dist
 COPY --from=frontend-builder /app/frontend/dist /app/Backend/frontend/dist
 
 # Inform Docker that the container listens on the specified network port at runtime
-EXPOSE 3000
+EXPOSE 3001
 
 # Define the command to run the backend server
 CMD ["node", "app.js"]

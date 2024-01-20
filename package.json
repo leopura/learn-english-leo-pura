@@ -170,7 +170,7 @@
   "scripts": {
     "start": "npm run frontend & npm run backend",
     "frontend": "cd frontend && npm run build",
-    "backend": "cd backend && node app.js",
+    "backend": "node app.js",
     "build": "cd frontend && npm run build"
   },
   "author": "",

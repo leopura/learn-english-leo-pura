@@ -89,7 +89,7 @@ body {
 }
 
 .header {
-  background-color: #007bff; /* Choose a suitable color */
+  background-color: #007bff;
   padding: 10px 20px;
   display: flex;
   justify-content: space-around;
@@ -110,7 +110,7 @@ body {
 }
 
 .footer {
-  background-color: #007bff; /* Choose a suitable color */
+  background-color: #007bff;
   color: white;
   text-align: center;
   padding: 10px 20px;

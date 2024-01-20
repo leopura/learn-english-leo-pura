@@ -1,23 +1,53 @@
-# Use the Alpine Linux-based which will have node 20 already installed
+## STAGE 1
 
-FROM node:20-alpine
+# Use a lightweight Node.js image as a base for building the frontend
+FROM node:20.9.0-alpine as frontend-builder
 
-# Inform Docker that the container will listen on port 3000
+# Sets and creates the working directory inside the container to /app/frontend
+WORKDIR /app/frontend
 
-EXPOSE 3000
+# Copy from local OS frontend package.json
+# and package-lock.json to the working directory
+COPY frontend/package*.json ./
 
-# Copy all files from the current directory to the /app directory inside the container
-
-COPY . /app
-
-# Set the working directory inside the container to /app
-
-WORKDIR /app
-
-# Run the npm install command to install Node.js dependencies for the application
-
+# Install dependencies defined in package-lock.json
 RUN npm install
 
-# Set the default command for the container to start the Node.js application using index.js
+# Copy all frontend source code to the working directory
+# node_modules excluded (.dockerignore)
+COPY frontend .
 
-CMD ["node", "Backend/app.js"]
+# Run the build script defined in package.json to build the frontend
+# builds app/frontend/dist in the container
+RUN npm run build
+
+## STAGE 2
+
+# Start a new build stage with the same lightweight Node.js image
+FROM node:20.9.0-alpine
+
+# Set the working directory inside the container to /app/backend
+WORKDIR /app/backend
+
+# Copy backend package.json and package-lock.json to the working directory
+COPY backend/package*.json ./
+
+# Install dependencies for the backend
+RUN npm install
+
+# Copy all backend source code to the working directory
+COPY backend .
+
+# Create a new directory for frontend files
+# (to avoid conflicts with backend files)
+RUN mkdir -p /app/backend/frontend/dist
+
+# Copy the built frontend files from the frontend-builder stage
+# to the directory serving frontend files in the backend
+COPY --from=frontend-builder /app/frontend/dist /app/backend/frontend/dist
+
+# Inform Docker that the container listens on the specified network port at runtime
+EXPOSE 3001
+
+# Define the command to run the backend server
+CMD ["node", "app.js"]

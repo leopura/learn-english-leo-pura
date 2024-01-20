@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  app: # service name, we are going to use this
+    build: . # Assuming your Dockerfile is in the same directory
+    ports:
+      - "3000:3000" # Maps port 3000 of the container to port 8080 on the host
+    env_file:
+      - ./backend/.env # Specifies the .env file to use

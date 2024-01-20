@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css"; // Import your CSS file
+import "./index.css";
 
 function Footer() {
   return <div className="footer">© 2024 Leo Pura</div>;

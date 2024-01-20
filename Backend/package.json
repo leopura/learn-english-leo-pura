@@ -1,11 +1,15 @@
 {
   "name": "46",
+    "workspaces": [
+    "frontend",
+    "Backend"
+  ],
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "npm run frontend & npm run backend",
-    "frontend": "cd frontend && npm run dev",
-    "backend": "node app.js",
+    "frontend": "npm run dev --workspace=frontend",
+    "backend": "npm start --workspace=backend",
     "build": "cd frontend && npm run build"
   },
   "keywords": [],

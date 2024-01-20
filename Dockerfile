@@ -50,4 +50,4 @@ COPY --from=frontend-builder /app/frontend/dist /app/Backend/frontend/dist
 EXPOSE 3001
 
 # Define the command to run the backend server
-CMD ["node", "app.js"]
+CMD ["npm", "start"]

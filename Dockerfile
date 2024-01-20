@@ -27,24 +27,24 @@ RUN npm run build
 FROM node:20.9.0-alpine
 
 # Set the working directory inside the container to /app/backend
-WORKDIR /app/backend
+WORKDIR /app/Backend
 
 # Copy backend package.json and package-lock.json to the working directory
-COPY backend/package*.json ./
+COPY Backend/package*.json ./
 
 # Install dependencies for the backend
 RUN npm install
 
 # Copy all backend source code to the working directory
-COPY backend .
+COPY Backend .
 
 # Create a new directory for frontend files
 # (to avoid conflicts with backend files)
-RUN mkdir -p /app/backend/frontend/dist
+RUN mkdir -p /app/Backend/frontend/dist
 
 # Copy the built frontend files from the frontend-builder stage
 # to the directory serving frontend files in the backend
-COPY --from=frontend-builder /app/frontend/dist /app/backend/frontend/dist
+COPY --from=frontend-builder /app/frontend/dist /app/Backend/frontend/dist
 
 # Inform Docker that the container listens on the specified network port at runtime
 EXPOSE 3001

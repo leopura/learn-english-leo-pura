@@ -1,5 +1,3 @@
-## STAGE 1
-
 # Use a lightweight Node.js image as a base for building the frontend
 FROM node:20.9.0-alpine as frontend-builder
 
@@ -37,10 +35,6 @@ RUN npm install
 
 # Copy all backend source code to the working directory
 COPY Backend .
-
-# Create a new directory for frontend files
-# (to avoid conflicts with backend files)
-RUN mkdir -p /app/Backend/frontend/dist
 
 # Copy the built frontend files from the frontend-builder stage
 # to the directory serving frontend files in the backend

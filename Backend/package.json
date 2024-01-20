@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run frontend & npm run backend",
-    "frontend": "cd frontend && npm run build",
+    "frontend": "cd frontend && npm run dev",
     "backend": "node app.js",
     "build": "cd frontend && npm run build"
   },

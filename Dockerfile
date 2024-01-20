@@ -34,7 +34,7 @@ COPY Backend/package*.json ./
 RUN npm install
 
 # Copy all backend source code to the working directory
-COPY Backend/ ./
+COPY Backend .
 
 # Copy the built frontend files from the frontend-builder stage
 # to the directory serving frontend files in the backend
